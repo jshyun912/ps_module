@@ -1,23 +1,31 @@
-long long GCD(long long num1, long long num2)
-{
-	if (num2 == 0)
-		return num1;
+// 유클리드 
 
-	return GCD(num2, num1 % num2);
+#define ll long long
+
+ll GCD(ll a, ll b)
+{
+    ll temp;
+
+    while (b > 0)
+    {
+        temp = a;
+        a = b;
+        b = temp % b;
+    }
+
+    return a;
 }
 
-ll GCD(ll num1, ll num2)
+int GCD(int a, int b)
 {
-	if (num2 == 0)
-		return num1;
+    int temp;
 
-	return GCD(num2, num1 % num2);
-}
+    while (b > 0)
+    {
+        temp = a;
+        a = b;
+        b = temp % b;
+    }
 
-int GCD(int num1, int num2)
-{
-	if (num2 == 0)
-		return num1;
-
-	return GCD(num2, num1 % num2);
+    return a;
 }
