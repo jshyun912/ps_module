@@ -1,4 +1,4 @@
-// 유클리드 
+// 유클리드 호제법
 
 #define ll long long
 
