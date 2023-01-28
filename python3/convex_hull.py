@@ -12,6 +12,9 @@ up.append(coord[0]); up.append(coord[1])
 down.append(coord[0]); down.append(coord[1])
 
 for i in range(2, N):
+    if coord[i] == up[-1]:
+        continue
+        
     while len(up) > 1:
         if ccw(up[-2], up[-1], coord[i]) <= 0:
             break
