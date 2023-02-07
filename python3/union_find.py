@@ -1,3 +1,5 @@
+# 분리 집합 알고리즘
+
 def find(x):
     global link
     if (x == link[x]):
