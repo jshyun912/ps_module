@@ -27,8 +27,8 @@ int compare(coord* a, coord* b)
 
 coord* convex_hull(coord* input, int len)
 {
-	coord up[1005], down[1005];
-	static coord output[1005];
+	coord up[SIZE], down[SIZE];
+	static coord output[SIZE];
 	int up_size = 0, down_size = 0;
 
 	qsort(input, len, sizeof(coord), compare);
@@ -49,13 +49,13 @@ coord* convex_hull(coord* input, int len)
 		down[down_size++] = input[i];
 	}
 
-	for (int i = 0; i < up_size - 1; i++)
+	for (int i = 1; i <= up_size - 1; i++)
 		output[i] = up[i];
 
-	for (int i = up_size - 1; i < up_size + down_size - 2; i++)
+	for (int i = up_size; i <= up_size + down_size - 2; i++)
 		output[i] = down[i - up_size + 1];
 
-	output[up_size + down_size - 2] = (coord){ inf, inf };
+	output[0].x = up_size + down_size - 2; // COVEXHULL SIZE
 
 	return output;
 }
