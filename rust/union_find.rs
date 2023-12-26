@@ -1,3 +1,5 @@
+use std::mem::*;
+
 fn find(a:usize, link:&mut Vec<usize>) -> usize
 {
     if a == link[a] { return a }
@@ -5,7 +7,7 @@ fn find(a:usize, link:&mut Vec<usize>) -> usize
     link[a]
 }
 
-fn unite(a:usize, b:usize, link:&mut Vec<usize>, size:&mut [usize], kid:&mut [usize])
+fn unite(a:usize, b:usize, link:&mut Vec<usize>, size:&mut [usize])
 {
     let mut x = find(b, link);
     let mut y = find(a, link);
@@ -16,7 +18,5 @@ fn unite(a:usize, b:usize, link:&mut Vec<usize>, size:&mut [usize], kid:&mut [us
 
     size[x] += size[y];
     size[y] = 0;
-    kid[x] += kid[y];
-    kid[y] = 0;
     link[y] = x
 }
