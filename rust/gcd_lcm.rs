@@ -2,7 +2,7 @@ fn gcd(mut a:usize, mut b:usize) -> usize
 {
     let mut tmp;
 
-    while b > 0
+    while b != 0
     {
         tmp = a;
         a = b;
