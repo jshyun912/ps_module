@@ -1,28 +1,22 @@
 # 분리 집합 알고리즘
 
-def find(x):
-    global link
-    if (x == link[x]):
-        return x
+def find(x, link):
+    if (x == link[x]): return x
     
-    link[x] = find(link[x])
+    link[x] = find(link[x], link)
 
     return link[x]
 
-def united(a, b):
-    global link, size
-    a = find(a)
-    b = find(b)
+def united(a, b, link, size):
+    a = find(a, link)
+    b = find(b, link)
 
-    if a == b:
-        return
+    if a == b: return
 
-    if size[a] < size[b]:
-        temp = a
-        a = b
-        b = temp
+    if size[a] < size[b]: a, b = b, a
 
     size[a] += size[b]
+    size[b] = 0
     link[b] = a
     
 def reset():
