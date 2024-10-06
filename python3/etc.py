@@ -1,4 +1,6 @@
 def dedup(a):
+    if len(a) == 0: return []
+    
     res = [ a[0] ]
     
     tmp = a[0]
