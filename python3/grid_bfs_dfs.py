@@ -1,4 +1,4 @@
-from collection import deque
+from collections import deque
 
 idx = ((1, 0), (-1, 0), (0, -1), (0, 1))
 
