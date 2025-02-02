@@ -4,7 +4,7 @@ idx = ((1, 0), (-1, 0), (0, -1), (0, 1))
 
 def compare(): return 0
 
-def grid_bfs(visited, start, check = 1, comp = ()):
+def grid_bfs(visited, start, check = 1, comp = compare()):
     visited[start[0]][start[1]] = check
 
     q = deque([start])
@@ -16,7 +16,7 @@ def grid_bfs(visited, start, check = 1, comp = ()):
             r, c = a + i, b + j
             
             if not (0 <= r < len(visited) and 0 <= c < len(visited[0])): continue
-            if compare(): continue
+            if comp(): continue
             if visited[r][c]: continue
             
             visited[r][c] = check
