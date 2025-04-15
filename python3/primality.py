@@ -46,3 +46,25 @@ def is_prime(n):
         a += 1
         
     return True
+
+def is_prime(N):
+    if N > 2 and N & 1 == 0: return 0
+    if N == 1 or N == 0: return 0
+
+    test = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
+
+    for i in test:
+        if i == N: return 1
+
+        d = N - 1
+        flt = pow(i, d, N)
+
+        while ~d & 1:
+            if flt == N - 1: break
+            d >>= 1
+            flt = pow(i, d, N)
+
+        if d & 1 and flt != 1 and flt != N - 1:
+            return 0
+
+    return 1
