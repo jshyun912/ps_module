@@ -1,11 +1,16 @@
 # 분리 집합 알고리즘
 
 def find(x, link):
-    if (x == link[x]): return x
-    
-    link[x] = find(link[x], link)
+    to_change = []
 
-    return link[x]
+    x = link[x]
+    while x != link[x]:
+        to_change.append(x)
+        x = link[x]
+
+    while to_change: link[to_change.pop()] = x
+
+    return x
 
 def united(a, b, link, size):
     a = find(a, link)
